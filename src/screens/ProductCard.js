@@ -2,6 +2,7 @@ import { Image, Text, TouchableOpacity, View } from 'react-native';
 import React, { useState } from 'react';
 
 import { AntDesign } from '@expo/vector-icons';
+import { addToCart } from '../reducers/cartReducer';
 import { useColorScheme } from 'nativewind';
 import { useDispatch } from 'react-redux'; // Import useDispatch to dispatch actions
 
@@ -30,31 +31,8 @@ export default function ProductCard({ product }) {
       <View style={{ marginTop: 10 }}>
         <Text style={{ fontSize: 14, color: 'gray' }}>{product.category}</Text>
         <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{product.title}</Text>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            marginTop: 5,
-          }}
-        >
-          <TouchableOpacity onPress={() => setCount(Math.max(count - 1, 1))}>
-            <AntDesign
-              name="minuscircleo"
-              size={24}
-              color={colorScheme === 'light' ? 'black' : 'white'}
-            />
-          </TouchableOpacity>
-          <Text style={{ fontSize: 20 }}>{count}</Text>
-          <TouchableOpacity onPress={() => setCount(count + 1)}>
-            <AntDesign
-              name="pluscircleo"
-              size={24}
-              color={colorScheme === 'light' ? 'black' : 'white'}
-            />
-          </TouchableOpacity>
-        </View>
         <Text style={{ fontSize: 24, fontWeight: 'bold' }}>
-          ${product.price * count}
+          ${product.price}
         </Text>
         <Text
           numberOfLines={2}
@@ -71,8 +49,7 @@ export default function ProductCard({ product }) {
             marginTop: 10,
           }}
           onPress={() => {
-            // Dispatch an action to add the product to the cart (you'll need to implement this)
-            dispatch(addToCart(product)); // Replace with your action creator
+            dispatch(addToCart(product)); 
           }}
         >
           <Text style={{ color: 'white', fontWeight: 'bold' }}>Add To Cart</Text>
