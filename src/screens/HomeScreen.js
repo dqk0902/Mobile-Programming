@@ -9,10 +9,6 @@ const HomeScreen = ({ navigation }) => {
     >
       <View style={styles.container}>
         <Text style={styles.title}>Suits Store</Text>
-        <Button
-          title="Go to Products"
-          onPress={() => navigation.navigate('Products')}
-        />
       </View>
     </ImageBackground>
   );
