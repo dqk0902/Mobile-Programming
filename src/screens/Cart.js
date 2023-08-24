@@ -22,7 +22,7 @@ const Cart = () => {
   };
 
   const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(1);
   };
 
   return (

@@ -1,7 +1,6 @@
 import Cart from '../screens/Cart';
 import HomeScreen from '../screens/HomeScreen';
 import { Icon } from '@rneui/themed';
-import { NavigationContainer } from '@react-navigation/native';
 import ProductsList from '../screens/ProductsList';
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -9,7 +8,6 @@ const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = () => {
   return (
-    <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
           tabBarActiveTintColor: '#000000',
@@ -29,7 +27,6 @@ const BottomTabNavigator = () => {
         <Tab.Screen name='Products' component={ProductsList} />
         <Tab.Screen name='Cart' component={Cart} />
       </Tab.Navigator>
-    </NavigationContainer>
   );
 };
 

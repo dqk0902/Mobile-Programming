@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import ProductCard from './ProductCard';
-import { fetchProducts } from '../actions/productActions';
+import { fetchProducts } from '../reducers/productReducer';
 
 export default function ProductsList() {
   const dispatch = useDispatch();
@@ -28,6 +28,7 @@ export default function ProductsList() {
         <TextInput
           placeholder="Search products"
           value={searchQuery}
+          autoCapitalize="none"
           onChangeText={setSearchQuery}
           style={{
             paddingHorizontal: 15,

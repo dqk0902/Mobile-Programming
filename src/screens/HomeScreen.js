@@ -8,7 +8,7 @@ const HomeScreen = ({ navigation }) => {
       style={styles.backgroundImage}
     >
       <View style={styles.container}>
-        <Text style={styles.title}>E-commerce Store</Text>
+        <Text style={styles.title}>Suits Store</Text>
         <Button
           title="Go to Products"
           onPress={() => navigation.navigate('Products')}
