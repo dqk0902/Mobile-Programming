@@ -32,3 +32,10 @@ Before you can run the app, ensure you have the following software/tools install
 - Expo CLI
 
 ## Some screenshot from the application
+
+![Login Screen](./src/assets/Screenshot1.png)
+![Register Screen](./src/assets/Screenshot2.png)
+![Home Screen](./src/assets/Screenshot3.png)
+![Products List Screen](./src/assets/Screenshot4.png)
+![Cart Screen](./src/assets/Screenshot5.png)
+![Profile Screen](./src/assets/Screenshot6.png)
