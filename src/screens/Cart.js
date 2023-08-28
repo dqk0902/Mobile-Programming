@@ -49,8 +49,8 @@ const Cart = () => {
               </View>
               <View style={{ marginTop: 10 }}>
                 <Text style={{ fontSize: 14, color: 'gray' }}>{item.category}</Text>
-                <Text style={{ fontSize: 18, fontWeight: 'gray' }}>{item.title}</Text>
-                <Text style={{ fontSize: 24, color: 'bold' }}>
+                <Text style={{ fontSize: 18, fontWeight: '400' }}>{item.title}</Text>
+                <Text style={{ fontSize: 24, color: 'black' }}>
                   ${item.price}
                 </Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
