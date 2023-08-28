@@ -1,5 +1,9 @@
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { decrementCartItemQuantity, incrementCartItemQuantity, removeFromCart } from '../reducers/cartReducer';
+import {
+  decrementCartItemQuantity,
+  incrementCartItemQuantity,
+  removeFromCart,
+} from '../reducers/cartReducer';
 import { useDispatch, useSelector } from 'react-redux';
 
 import React from 'react';
@@ -16,13 +20,14 @@ const Cart = () => {
     dispatch(decrementCartItemQuantity(itemId));
   };
 
-
   const removeItem = (itemId) => {
     dispatch(removeFromCart(itemId));
   };
 
   const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(1);
+    return cartItems
+      .reduce((total, item) => total + item.price * item.quantity, 0)
+      .toFixed(1);
   };
 
   return (
@@ -39,6 +44,7 @@ const Cart = () => {
                 borderRadius: 20,
                 padding: 20,
                 marginVertical: 10,
+                minWidth: 300, 
               }}
             >
               <View style={{ backgroundColor: 'white', borderRadius: 20 }}>
@@ -50,9 +56,7 @@ const Cart = () => {
               <View style={{ marginTop: 10 }}>
                 <Text style={{ fontSize: 14, color: 'gray' }}>{item.category}</Text>
                 <Text style={{ fontSize: 18, fontWeight: '400' }}>{item.title}</Text>
-                <Text style={{ fontSize: 24, color: 'black' }}>
-                  ${item.price}
-                </Text>
+                <Text style={{ fontSize: 24, color: 'black' }}>${item.price}</Text>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   <TouchableOpacity
                     style={styles.quantityButton}
@@ -83,28 +87,26 @@ const Cart = () => {
               </View>
             </View>
           ))}
-        <View style={styles.container}>
+          <View style={styles.container}>
             <View style={styles.box}>
-            <Text style={styles.title}>Summary</Text>
-            <View style={styles.item}>
-            <Text style={styles.label}>Discount</Text>
-            <Text style={styles.value}>$8.00</Text>
-         </View>
-        <View style={styles.item}>
-          <Text style={styles.label}>Shipping</Text>
-          <Text style={styles.value}>$8.00</Text>
-        </View>
-        <View style={styles.total}>
-            <Text style={styles.label}>Total</Text>
-            <Text style={styles.totalValue}>${calculateTotal()}</Text>
-        </View>
-        <TouchableOpacity
-          style={styles.button}
-        >
-          <Text style={styles.buttonText}>Pay now</Text>
-        </TouchableOpacity>
-        </View>
-        </View>
+              <Text style={styles.title}>Summary</Text>
+              <View style={styles.item}>
+                <Text style={styles.label}>Discount</Text>
+                <Text style={styles.value}>$8.00</Text>
+              </View>
+              <View style={styles.item}>
+                <Text style={styles.label}>Shipping</Text>
+                <Text style={styles.value}>$8.00</Text>
+              </View>
+              <View style={styles.total}>
+                <Text style={styles.label}>Total</Text>
+                <Text style={styles.totalValue}>${calculateTotal()}</Text>
+              </View>
+              <TouchableOpacity style={styles.button}>
+                <Text style={styles.buttonText}>Pay now</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
       )}
     </ScrollView>
